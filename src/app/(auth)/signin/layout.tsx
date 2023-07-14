@@ -1,7 +1,6 @@
 "use client";
 
-import "./layout.css";
-import "..//styles/globals.css";
+import "../../../styles/globals.css";
 
 import { Inter } from "next/font/google";
 import SignIn from "./page";
@@ -16,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="home">
-        {children}
         <SignIn />
       </body>
     </html>

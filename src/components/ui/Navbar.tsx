@@ -25,7 +25,23 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Sign In", "Sign Up", "Contact"];
+const navItems = [
+  {
+    id: 1,
+    name: "Sign In",
+    url: "/signin",
+  },
+  {
+    id: 2,
+    name: "Sign Up",
+    url: "/signup",
+  },
+  {
+    id: 3,
+    name: "Dashboard",
+    url: "/dashboard",
+  },
+];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -42,10 +58,10 @@ export default function DrawerAppBar(props: Props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navItems.map((item: any) => (
+          <ListItem key={item.id} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -78,10 +94,9 @@ export default function DrawerAppBar(props: Props) {
             Zoun
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                <Link href="/"> </Link>
-                {item}
+            {navItems.map((item: any) => (
+              <Button key={item.id} sx={{ color: "#fff" }}>
+                <Link href={item.url}>{item.name} </Link>
               </Button>
             ))}
           </Box>

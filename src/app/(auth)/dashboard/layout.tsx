@@ -2,8 +2,8 @@
 
 import "../../../styles/globals.css";
 
+import DashboardNav from "./page";
 import { Inter } from "next/font/google";
-import SignUp from "./page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="home">
-        <SignUp />
+        <DashboardNav />
       </body>
     </html>
   );

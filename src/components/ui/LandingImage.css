@@ -5,6 +5,13 @@
   border-radius: 10px;
   margin-left: 30%;
   padding-top: 0.5%;
+  border-color: linear-gradient(
+      217deg,
+      rgb(28, 119, 139),
+      rgba(215, 19, 19, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgb(178, 78, 214), rgba(105, 3, 143, 1) 70.71%),
+    linear-gradient(136deg, rgba(34, 16, 40, 1), rgba(45, 45, 213, 0) 70.71%);
 }
 
 .imageBox {
@@ -12,7 +19,6 @@
   width: 100%;
   border-radius: 10px;
   margin-top: 2.5%;
-  background-color: red;
 }
 
 .landingImage {
