@@ -1,16 +1,9 @@
 "use client";
 
 import "./layout.css";
-import "..//styles/globals.css";
+import "../styles/globals.css";
 
-import Dash from "@/components/ui/Dash";
-import DashList from "@/components/ui/DashList";
-import Heading from "@/components/ui/Heading";
-import { Inter } from "next/font/google";
-import LandingImage from "@/components/ui/LandingImage";
 import Navbar from "@/components/ui/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -20,10 +13,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="home">
-        {children}
         <Navbar />
-        <Heading />
-        <LandingImage />
+        <main>{children}</main>
       </body>
     </html>
   );

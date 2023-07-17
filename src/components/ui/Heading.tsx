@@ -1,3 +1,5 @@
+"use client";
+
 import "./Heading.css";
 
 import { Button } from "@mui/base";
