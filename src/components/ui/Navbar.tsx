@@ -43,7 +43,7 @@ const navItems = [
   },
 ];
 
-export default function DrawerAppBar(props: Props) {
+export const DrawerAppBar = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -127,4 +127,6 @@ export default function DrawerAppBar(props: Props) {
       </Box>
     </Box>
   );
-}
+};
+
+export default DrawerAppBar;
