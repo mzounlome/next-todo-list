@@ -7,6 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import Link from "next/link";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -24,9 +25,25 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Sign In", "Sign Up", "Contact"];
+const navItems = [
+  {
+    id: 1,
+    name: "Sign In",
+    url: "/signin",
+  },
+  {
+    id: 2,
+    name: "Sign Up",
+    url: "/signup",
+  },
+  {
+    id: 3,
+    name: "Dashboard",
+    url: "/dashboard",
+  },
+];
 
-export default function DrawerAppBar(props: Props) {
+export const DrawerAppBar = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -37,14 +54,14 @@ export default function DrawerAppBar(props: Props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        <Link href="/">Zoun</Link>
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navItems.map((item: any) => (
+          <ListItem key={item.id} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -74,12 +91,12 @@ export default function DrawerAppBar(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            Zoun
+            <Link href="/">Zoun</Link>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+            {navItems.map((item: any) => (
+              <Button key={item.id} sx={{ color: "#fff" }}>
+                <Link href={item.url}>{item.name} </Link>
               </Button>
             ))}
           </Box>
@@ -107,18 +124,9 @@ export default function DrawerAppBar(props: Props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Typography>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          unde fugit veniam eius, perspiciatis sunt? Corporis qui ducimus
-          quibusdam, aliquam dolore excepturi quae. Distinctio enim at eligendi
-          perferendis in cum quibusdam sed quae, accusantium et aperiam? Quod
-          itaque exercitationem, at ab sequi qui modi delectus quia corrupti
-          alias distinctio nostrum. Minima ex dolor modi inventore sapiente
-          necessitatibus aliquam fuga et. Sed numquam quibusdam at officia
-          sapiente porro maxime corrupti perspiciatis asperiores, exercitationem
-          eius nostrum consequuntur iure aliquam itaque, assumenda et!
-        </Typography>
       </Box>
     </Box>
   );
-}
+};
+
+export default DrawerAppBar;

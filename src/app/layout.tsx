@@ -1,23 +1,22 @@
 "use client";
 
 import "./layout.css";
-import "..//styles/globals.css";
+import "../styles/globals.css";
 
-import { Inter } from "next/font/google";
-import Navbar from "@/components/ui/Bar/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "@/components/ui/Navbar";
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const path = usePathname();
   return (
     <html lang="en">
       <body className="home">
-        {children}
-        <Navbar />
+        {path !== "/dashboard" ? <Navbar /> : null}
+        <main>{children}</main>
       </body>
     </html>
   );
