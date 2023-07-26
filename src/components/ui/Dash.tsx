@@ -13,6 +13,8 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Task from "./Task";
 import Typography from "@mui/material/Typography";
+import { defaultTasks } from "../../app/utils/data";
+import { useState } from "react";
 
 function Copyright() {
   return (
@@ -31,8 +33,8 @@ const DashBox = styled("div")(({}) => ({
   display: "flex",
   flexDirection: "column",
 
-  width: "560px",
-  height: "260px",
+  width: "300px",
+  height: "250px",
   backgroundColor: "gray",
   borderRadius: "10px",
   marginLeft: "125px",
@@ -47,7 +49,20 @@ const DashTaskList = styled("li")(({}) => ({
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Album() {
+export default function Album({}) {
+  const [tasks, setTasks] = useState(defaultTasks.All);
+  // const [currentTask, setCurrentTask] = useState();
+  const [taskId, setTaskId] = useState(1);
+  const renderTasks = () => {
+    return tasks.map((task) => {
+      <div key={task.id}>
+        <h4>{task.description}</h4>
+        <div>
+          <h4>{task.completed}</h4>
+        </div>
+      </div>;
+    });
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -95,13 +110,9 @@ export default function Album() {
           {/* End hero unit */}
 
           <DashBox>
-            <Typography variant="h4" sx={{ pl: 8, pt: 1.2 }}>
-              Dashboard
-            </Typography>
+            <Typography variant="h4" sx={{ pl: 8, pt: 1.2 }}></Typography>
             <br />
-            <DashListCont>
-              <Task />
-            </DashListCont>
+            <DashListCont>{renderTasks()}</DashListCont>
             <Button>
               <Typography paragraph>Go to Collection</Typography>
             </Button>
