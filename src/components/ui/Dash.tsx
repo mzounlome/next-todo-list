@@ -54,15 +54,17 @@ export default function Album({}) {
   // const [currentTask, setCurrentTask] = useState();
   const [taskId, setTaskId] = useState(1);
   const renderTasks = () => {
-    return tasks.map((task) => {
+    return tasks.map((task) => (
       <div key={task.id}>
         <h4>{task.description}</h4>
         <div>
           <h4>{task.completed}</h4>
         </div>
-      </div>;
-    });
+      </div>
+    ));
   };
+  console.log({ tasks });
+  console.log("renderTasks", renderTasks());
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
